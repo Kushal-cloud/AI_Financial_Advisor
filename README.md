@@ -24,10 +24,11 @@ Tech Stack
 Project Structure
 -----------------
 
-The repository is organized as a monorepo with separate frontend and backend folders:
+The repository is organized as a monorepo with multiple apps:
 
 - `backend/` - FastAPI application, database models, services, and AI advisor engine
 - `frontend/` - React + TypeScript single-page app with a modern dashboard UI
+- Root-level Streamlit app - Gemini-powered dashboard with financial ratios, charts, and chatbot (`app.py`, `finance_analysis.py`, `ai_advisor.py`, `visualization.py`, `utils.py`, `styles.css`)
 
 Getting Started
 ---------------
@@ -62,6 +63,36 @@ npm run dev
 ```
 
 The frontend will be available at the URL printed in the terminal, typically `http://localhost:5173`.
+
+### Streamlit + Gemini App (Optional)
+
+This repo also includes a standalone Streamlit application that follows the original activity plan (financial ratios, visualizations, and a Gemini-powered advisor).
+
+#### 1. Environment and dependencies
+
+From the project root:
+
+```bash
+python -m venv .venv-streamlit
+source .venv-streamlit/bin/activate  # On Windows: .venv-streamlit\Scripts\activate
+
+pip install -r requirements.txt
+cp .env.example .env  # then edit .env and paste your GEMINI_API_KEY from Google AI Studio
+```
+
+#### 2. Run the Streamlit app
+
+```bash
+streamlit run app.py
+```
+
+This will open a browser tab (or give you a local URL) where you can:
+
+- Enter income, expenses, and savings in the sidebar
+- See calculated savings ratio, debt ratio, and emergency fund metrics
+- View visual charts for cashflow, expenses, and emergency fund progress
+- Chat with a Gemini-powered AI assistant for educational financial guidance
+- Explore a simple goal-based savings allocation table
 
 Environment Configuration
 -------------------------

@@ -15,12 +15,19 @@ body::before {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 10% 0%, rgba(56, 189, 248, 0.08), transparent 55%),
-    radial-gradient(circle at 90% 20%, rgba(52, 211, 153, 0.12), transparent 55%),
-    radial-gradient(circle at 50% 100%, rgba(129, 140, 248, 0.12), transparent 60%);
-  mix-blend-mode: screen;
-  opacity: 0.85;
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(52, 211, 153, 0.15), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(56, 189, 248, 0.08), transparent 45%),
+    radial-gradient(ellipse 50% 30% at 0% 100%, rgba(129, 140, 248, 0.1), transparent 45%);
   z-index: -1;
+}
+
+@layer components {
+  .glass-panel {
+    @apply rounded-2xl border border-white/5 bg-slate-900/40 backdrop-blur-xl shadow-glass;
+  }
+  .metric-card {
+    @apply rounded-2xl border border-white/5 bg-slate-900/50 backdrop-blur-xl p-5 shadow-glass hover:shadow-glow-sm hover:border-emerald-500/20 transition-all duration-300;
+  }
 }
 
 input,
@@ -40,12 +47,12 @@ select {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(15, 23, 42, 0.8);
+  background: rgba(51, 65, 85, 0.8);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(30, 64, 175, 0.9);
+  background: rgba(52, 211, 153, 0.4);
 }
 
 

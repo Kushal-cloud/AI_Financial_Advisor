@@ -81,9 +81,9 @@ export function GoalsPage() {
     <div className="space-y-6">
       <div className="flex items-baseline justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight">Goals</h1>
-          <p className="text-sm text-slate-400 mt-1">
-            Capture the big things you are planning for and track progress toward each target.
+          <h1 className="font-display text-2xl font-semibold tracking-tight text-slate-50">Goals</h1>
+          <p className="text-sm text-slate-500 mt-1">
+            Define targets and track progress.
           </p>
         </div>
       </div>
@@ -91,19 +91,19 @@ export function GoalsPage() {
       <div className="grid gap-4 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
         <form
           onSubmit={handleCreate}
-          className="rounded-xl border border-slate-800/80 bg-slate-900/70 p-4 space-y-3 shadow-soft-card/40"
+          className="glass-panel p-5 space-y-4"
         >
-          <h2 className="text-sm font-semibold mb-1">Create a goal</h2>
+          <h2 className="font-display text-sm font-semibold text-slate-200">Create a goal</h2>
           {error && (
-            <div className="rounded-md border border-red-500/40 bg-red-500/10 px-3 py-2 text-xs text-red-200">
+            <div className="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-2.5 text-xs text-red-200">
               {error}
             </div>
           )}
           <div>
-            <label className="block text-xs mb-1 text-slate-300">Name</label>
+            <label className="block text-[11px] font-medium uppercase tracking-wider text-slate-500 mb-1.5">Name</label>
             <input
               required
-              className="w-full rounded-md border border-slate-700 bg-slate-900 px-3 py-2 text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
+              className="w-full rounded-xl border border-white/10 bg-slate-800/50 px-4 py-2.5 text-sm text-slate-100 focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/30"
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Retirement at 65"
@@ -111,9 +111,9 @@ export function GoalsPage() {
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs mb-1 text-slate-300">Goal type</label>
+              <label className="block text-[11px] font-medium uppercase tracking-wider text-slate-500 mb-1.5">Goal type</label>
               <select
-                className="w-full rounded-md border border-slate-700 bg-slate-900 px-3 py-2 text-sm"
+                className="w-full rounded-xl border border-white/10 bg-slate-800/50 px-4 py-2.5 text-sm text-slate-100"
                 value={goalType}
                 onChange={(e) => setGoalType(e.target.value)}
               >
@@ -125,10 +125,10 @@ export function GoalsPage() {
               </select>
             </div>
             <div>
-              <label className="block text-xs mb-1 text-slate-300">Target year</label>
+              <label className="block text-[11px] font-medium uppercase tracking-wider text-slate-500 mb-1.5">Target year</label>
               <input
                 type="number"
-                className="w-full rounded-md border border-slate-700 bg-slate-900 px-3 py-2 text-sm"
+                className="w-full rounded-xl border border-white/10 bg-slate-800/50 px-4 py-2.5 text-sm text-slate-100"
                 value={targetYear}
                 onChange={(e) => setTargetYear(e.target.value)}
               />
@@ -136,21 +136,21 @@ export function GoalsPage() {
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs mb-1 text-slate-300">Target amount</label>
+              <label className="block text-[11px] font-medium uppercase tracking-wider text-slate-500 mb-1.5">Target amount</label>
               <input
                 type="number"
                 min={0}
-                className="w-full rounded-md border border-slate-700 bg-slate-900 px-3 py-2 text-sm"
+                className="w-full rounded-xl border border-white/10 bg-slate-800/50 px-4 py-2.5 text-sm text-slate-100"
                 value={targetAmount}
                 onChange={(e) => setTargetAmount(e.target.value)}
               />
             </div>
             <div>
-              <label className="block text-xs mb-1 text-slate-300">Current amount</label>
+              <label className="block text-[11px] font-medium uppercase tracking-wider text-slate-500 mb-1.5">Current amount</label>
               <input
                 type="number"
                 min={0}
-                className="w-full rounded-md border border-slate-700 bg-slate-900 px-3 py-2 text-sm"
+                className="w-full rounded-xl border border-white/10 bg-slate-800/50 px-4 py-2.5 text-sm text-slate-100"
                 value={currentAmount}
                 onChange={(e) => setCurrentAmount(e.target.value)}
               />
@@ -159,19 +159,18 @@ export function GoalsPage() {
           <button
             type="submit"
             disabled={creating}
-            className="w-full rounded-md bg-emerald-500 py-2 text-sm font-medium text-slate-950 hover:bg-emerald-400 disabled:opacity-60"
+            className="w-full rounded-xl bg-emerald-500 py-3 text-sm font-semibold text-slate-950 hover:bg-emerald-400 disabled:opacity-50 shadow-glow-sm transition-all duration-300"
           >
-            {creating ? "Adding..." : "Add goal"}
+            {creating ? "Adding…" : "Add goal"}
           </button>
           <p className="text-[11px] text-slate-500">
-            This is an educational sandbox. For personalized recommendations, consult a licensed
-            professional advisor.
+            Educational sandbox. Consult a licensed advisor for personalized advice.
           </p>
         </form>
 
-        <div className="rounded-xl border border-slate-800/80 bg-slate-900/70 p-4">
-          <div className="flex items-center justify-between mb-3">
-            <h2 className="text-sm font-semibold">Your goals</h2>
+        <div className="glass-panel p-5">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="font-display text-sm font-semibold text-slate-200">Your goals</h2>
             {loading && <span className="text-xs text-slate-500">Loading...</span>}
           </div>
           {goals.length === 0 ? (
@@ -183,7 +182,7 @@ export function GoalsPage() {
               {goals.map((g) => (
                 <li
                   key={g.id}
-                  className="flex items-start justify-between gap-3 rounded-md border border-slate-800/80 bg-slate-900/60 px-3 py-2"
+                  className="flex items-start justify-between gap-3 rounded-xl border border-white/5 bg-slate-800/40 px-3 py-2.5"
                 >
                   <div>
                     <div className="font-medium">{g.name}</div>

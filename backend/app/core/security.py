@@ -7,8 +7,8 @@ from passlib.context import CryptContext
 from ..config import get_settings
 
 
-# Use bcrypt_sha256 to avoid bcrypt's 72-byte password limit
-pwd_context = CryptContext(schemes=["bcrypt_sha256"], deprecated="auto")
+# Use pbkdf2_sha256 to avoid bcrypt backend issues and length limits
+pwd_context = CryptContext(schemes=["pbkdf2_sha256"], deprecated="auto")
 settings = get_settings()
 
 
